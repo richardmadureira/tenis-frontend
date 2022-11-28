@@ -45,3 +45,8 @@ export async function findAll(options: { pageIndex: number, pageSize: number, fi
     });
     return response.data;
 }
+
+export async function findAllEager(): Promise<ITenista[]> {
+    const response = await api.get<void, AxiosResponse<ITenista[]>>("/tenistas/pesquisa");
+    return response.data;
+}

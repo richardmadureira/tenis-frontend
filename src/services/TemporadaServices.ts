@@ -30,3 +30,8 @@ export const findAll = async (options: { pageIndex: number, pageSize: number, fi
     });
     return response.data;
 }
+
+export const findAllAtiva = async(): Promise<ITemporada[]> => {
+    const response = await api.get<ITemporada[]>("/temporadas/ativas");
+    return response.data;
+}
