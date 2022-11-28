@@ -17,7 +17,7 @@ export const atualizar = async (torneio: ITorneio): Promise<ITorneio> => {
     return response.data;
 }
 
-export const excluirTemporadaPeloId = async (id: string | undefined): Promise<void> => {
+export const excluirTorneioPeloId = async (id: string | undefined): Promise<void> => {
     await api.delete<any, AxiosResponse<void>>(`/torneios/${id}`);
 }
 
