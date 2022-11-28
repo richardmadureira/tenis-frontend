@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.react-datepicker__header {
+    @apply bg-primary;
+}
+
+.react-datepicker__current-month, .react-datepicker__day-name {
+    @apply text-white;
+}
+
+.react-datepicker__day--keyboard-selected {
+    @apply bg-primary;
+}
+
+.react-datepicker__close-icon{
+    @apply text-primary;
+}
