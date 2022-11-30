@@ -7,12 +7,12 @@ import routes from './routes';
 import { QueryClientProvider } from 'react-query';
 import './assets/styles/global.css';
 import { queryClient } from './utils/query-client';
-const router = createBrowserRouter(routes);
+const router = createBrowserRouter(routes, { basename: '/tenis-frontend'});
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} fallbackElement={<Spinner />} />
+      <RouterProvider router={router} fallbackElement={<Spinner />}/>
     </QueryClientProvider>
   </React.StrictMode>
 )
