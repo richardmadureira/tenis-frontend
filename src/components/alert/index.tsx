@@ -11,7 +11,7 @@ interface IAlertProps {
     message: IMessage;
 }
 
-export const Alert = memo(({ message: {severity, content} }: IAlertProps): ReactElement => {
+export const Alert = memo(({ message: {severity = 'info', content} }: IAlertProps): ReactElement => {
     const className = useMemo(() => `alert alert-${severity} shadow`, [severity]);
     return (
         <div className={className}>

@@ -2,8 +2,9 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useQuery } from "react-query";
 import { Link, useParams } from "react-router-dom";
 import { IdParam } from "../../../models";
+import { TipoPartida } from "../../../models/enums";
 import { obterDesafioPeloId } from '../../../services/DesafioServices';
-import { dateFormat, tipoPartidaFormat } from "../../../utils";
+import { dateTimeFormat, tipoPartidaFormat } from "../../../utils";
 
 export const DesafioDetalhePage = () => {
     const { id } = useParams<IdParam>();
@@ -24,11 +25,11 @@ export const DesafioDetalhePage = () => {
                     </div>
                     <div className='form-control'>
                         <label id='label-nome' className='label'>Tipo de Partida</label>
-                        <output id='nome' className='input input-disabled input-sm input-bordered'>{tipoPartidaFormat(data?.codigoTipoPartida)}</output>
+                        <output id='nome' className='input input-disabled input-sm input-bordered'>{tipoPartidaFormat(data?.tipoPartida as TipoPartida)}</output>
                     </div>
                     <div className='form-control'>
-                        <label id='label-horario-inicio' className='label'>Data de Início</label>
-                        <output id='horario-inicio' className='input input-disabled input-sm input-bordered'>{dateFormat(data?.horarioInicio)}</output>
+                        <label id='label-horario-inicio' className='label'>Horário Previsto</label>
+                        <output id='horario-inicio' className='input input-disabled input-sm input-bordered'>{dateTimeFormat(data?.horarioPrevisto)}</output>
                     </div>
                 </div>
             </div>

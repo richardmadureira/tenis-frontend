@@ -23,18 +23,19 @@ export const novaTemporadaSchema = object().shape({
 });
 
 export const novoDesafioSchema = object().shape({
-  codigoTipoPartida: number().required('É necessário informar o tipo de partida').oneOf([1,2,3,4,5], 'Tipo de partida inválido'),
-  horarioPrevisto: date().required('É necessário informar o horário previsto do desafio'),
-  tenistaDesafiante1: number().required('É necessário informar o tenista desafiante 1'),
-  tenistaDesafiado1: number().required('É necessário informar o tenista desafiado 1'),
-  tenistaDesafiante2: number().when('codigoTipoPartida',{
+  codigoTipoPartida: number().nullable().required('É necessário informar o tipo de partida').oneOf([1,2,3,4,5], 'Tipo de partida inválido'),
+  horarioPrevisto: date().nullable().required('É necessário informar o horário previsto do desafio'),
+  idTemporada: string().nullable().required('É necessário informar a temporada'),
+  idTenistaDesafiante1: string().nullable().required('É necessário informar o tenista desafiante 1'),
+  idTenistaDesafiado1: string().nullable().required('É necessário informar o tenista desafiado 1'),
+  idTenistaDesafiante2: string().nullable().when('codigoTipoPartida',{
     is: (codigoTipoPartida: number) => codigoTipoPartida && codigoTipoPartida > 2,
-    then: number().required('É necessário informar o tenista desafiante 2'),
-    otherwise: number().nullable().optional()
+    then: string().nullable().required('É necessário informar o tenista desafiante 2'),
+    otherwise: string().nullable().optional()
   }),
-  tenistaDesafiado2: number().when('codigoTipoPartida',{
+  idTenistaDesafiado2: string().nullable().when('codigoTipoPartida',{
     is: (codigoTipoPartida: number) => codigoTipoPartida && codigoTipoPartida > 2,
-    then: number().required('É necessário informar o tenista desafiado 2'),
-    otherwise: number().nullable().optional()
+    then: string().nullable().required('É necessário informar o tenista desafiado 2'),
+    otherwise: string().nullable().optional()
   })
 });

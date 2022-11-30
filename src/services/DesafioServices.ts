@@ -1,5 +1,6 @@
 import { AxiosResponse } from "axios";
 import { IDesafio, Page } from "../models";
+import { TipoPartida } from "../models/enums";
 import api from '../utils/api';
 
 export const obterDesafioPeloId = async (id: string | undefined): Promise<IDesafio | null> => {
@@ -8,6 +9,7 @@ export const obterDesafioPeloId = async (id: string | undefined): Promise<IDesaf
 };
 
 export const salvar = async (desafio: IDesafio): Promise<IDesafio> => {
+    desafio.tipoPartida = 'SIMPLES_MASCULINA';
     const response = await api.post<IDesafio, AxiosResponse<IDesafio>>('/desafios', desafio);
     return response.data;
 }

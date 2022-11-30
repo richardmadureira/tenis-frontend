@@ -14,6 +14,19 @@ export const dateFormat = (date: Date | string | undefined): string => {
     return '--/--/----';
 }
 
+export const dateTimeFormat = (date: Date | string | undefined): string => {
+    if (date != null) {
+        if (date instanceof Date) {
+            // return Intl.DateTimeFormat("pt-br", {weekday: 'long', year: "numeric", month: "2-digit", day: "2-digit", hour: '2-digit', minute: '2-digit'}).format(date);
+            return Intl.DateTimeFormat("pt-br", {dateStyle: 'full', timeStyle: 'short'}).format(date);
+        } else {
+            return date.toString();
+            // throw new Error('Data informada não é uma instância de Date')
+        }
+    }
+    return '--/--/----';
+}
+
 export const sexoFormat = (codigoSexo: number | undefined): string => {
     if (codigoSexo) {
         if (codigoSexo === Sexo.Masculino) {
@@ -25,8 +38,9 @@ export const sexoFormat = (codigoSexo: number | undefined): string => {
     return '--';
 }
 
-export const tipoPartidaFormat = (tipoPartida: any): string => {
-    switch (tipoPartida) {
+export const tipoPartidaFormat = (tipoPartida: TipoPartida): string => {
+    console.log('tipoPartida', tipoPartida);
+    switch (tipoPartida && TipoPartida[tipoPartida]) {
         case TipoPartida.SIMPLES_MASCULINA:
             return "Simples - Masculina";
         case TipoPartida.SIMPLES_FEMININA:
@@ -38,7 +52,7 @@ export const tipoPartidaFormat = (tipoPartida: any): string => {
         case TipoPartida.DUPLAS_MISTA:
             return "Duplas - Mista";
         default:
-            return '';
+            return String(tipoPartida);
             // throw new Error('tipo de partida inválido: ' + tipoPartida);
     }
 }

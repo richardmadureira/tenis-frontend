@@ -31,11 +31,11 @@ export const DesafioExclusaoPage = () => {
                 <div className='card-body'>
                     <div className='form-control'>
                         <label id='label-tenista-desafiante1' className='label'>Tenista Desafiante</label>
-                        <output id='tenista-desafiante1' className='input input-disabled input-sm input-bordered'>{data?.tenistaDesafiante1.nome}</output>
+                        <output id='tenista-desafiante1' className='input input-disabled input-sm input-bordered'>{data?.tenistaDesafiante1?.nome}</output>
                     </div>
                     <div className='form-control'>
                         <label id='label-tenista-desafiado1' className='label'>Tenista Desafiado</label>
-                        <output id='tenista-desafiado1' className='input input-disabled input-sm input-bordered'>{data?.tenistaDesafiado1.nome}</output>
+                        <output id='tenista-desafiado1' className='input input-disabled input-sm input-bordered'>{data?.tenistaDesafiado1?.nome}</output>
                     </div>
                     <div className='form-control'>
                         <label id='label-horario-previsto' className='label'>Horário Previsto</label>

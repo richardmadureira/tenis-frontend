@@ -1,8 +1,14 @@
-import { Sexo } from "./enums";
+import { Sexo, TipoPartida } from "./enums";
 
 export interface IDesafio {
     id?: string;
     codigoTipoPartida?: number;
+    tipoPartida: TipoPartida | string;
+    idTemporada?: string;
+    idTenistaDesafiante1?: string;
+    idTenistaDesafiante2?: string;
+    idTenistaDesafiado1?: string;
+    idTenistaDesafiado2?: string;
     tenistaDesafiante1?: ITenista;
     tenistaDesafiante2?: ITenista;
     tenistaDesafiado1?: ITenista;

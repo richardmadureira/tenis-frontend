@@ -24,7 +24,7 @@ export const TenistaNovoPage = () => {
     const navigate = useNavigate();
 
     const onSave = async (tenista: ITenista & {avatarFileName: string}) => {
-        tenista.avatarFileName = avatarFileName;
+        tenista.avatarFileName = avatarFileName || '';
         const tenistaSalvo = await salvarTenista(tenista);
         reset(tenistaSalvo);
         navigate(`/tenistas/detalhe/${tenistaSalvo.id}`, { state: { message: { severity: 'success', content: 'Tenista salvo com sucesso.' } } });

@@ -13,7 +13,7 @@ import { dateFormat, tipoPartidaFormat } from "../../../utils";
 export const DesafioConsultaPage = () => {
     const [filter, setFilter] = useState<IDesafio>();
     const [codigoTipoPartida, setCodigoTipoPartida] = useState<number|null>();
-    const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 1 });
+    const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({ pageIndex: 0, pageSize: 10 });
     const fetchDataOptions = { pageIndex, pageSize, filter };
     const { data, isFetching, isLoading, status } = useQuery(['desafios', fetchDataOptions], () => findAll(fetchDataOptions));
     const pagination = useMemo(() => ({ pageIndex, pageSize }), [pageIndex, pageSize])
@@ -33,7 +33,7 @@ export const DesafioConsultaPage = () => {
                 header: 'Tipo de Partida',
                 accessorKey: 'tipoPartida', 
                 cell: (props: CellContext<IDesafio, any>) => {
-                    return props.getValue() ? (<div>{tipoPartidaFormat(TipoPartida[props.getValue()])}</div>) : <></>
+                    return props.getValue() ? (<div>{props.getValue()}</div>) : <></>
                 }
             },
             { header: 'Desafiante', accessorKey: 'tenistaDesafiante1.nome' },
