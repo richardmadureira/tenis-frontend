@@ -1,4 +1,5 @@
 import { RouteObject } from "react-router-dom";
+import { ErrorBoundary } from "./components/error/ErrorBoundary";
 import { Layout } from "./components/layout/layout";
 import { DesafioHomePage } from "./pages/desafios";
 import { DesafioAlteracaoPage } from "./pages/desafios/alteracao";
@@ -31,6 +32,7 @@ const routes: RouteObject[] = [
     {
         path: '/',
         element: <Layout />,
+        errorElement: <ErrorBoundary/>,
         children: [
             {
                 path: 'home',
