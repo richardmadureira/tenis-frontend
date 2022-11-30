@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
 
+  base: 'https://richardmadureira.github.io/tenis-frontend/',
   server: {
     host: '0.0.0.0'
   }
