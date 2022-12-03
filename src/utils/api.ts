@@ -2,7 +2,7 @@ import axios from 'axios';
 import { handleDates } from '.';
 
 const api = axios.create({
-    baseURL: 'http://localhost:3333',
+    baseURL: import.meta.env.VITE_URL_API
 });
 
 api.interceptors.response.use(originalResponse => {

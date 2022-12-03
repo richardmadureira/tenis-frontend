@@ -7,7 +7,7 @@ import routes from './routes';
 import { QueryClientProvider } from 'react-query';
 import './assets/styles/global.css';
 import { queryClient } from './utils/query-client';
-const router = createBrowserRouter(routes, { basename: '/tenis-frontend'});
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
