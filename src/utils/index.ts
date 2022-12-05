@@ -39,7 +39,6 @@ export const sexoFormat = (codigoSexo: number | undefined): string => {
 }
 
 export const tipoPartidaFormat = (tipoPartida: TipoPartida): string => {
-    console.log('tipoPartida', tipoPartida);
     switch (tipoPartida && TipoPartida[tipoPartida]) {
         case TipoPartida.SIMPLES_MASCULINA:
             return "Simples - Masculina";

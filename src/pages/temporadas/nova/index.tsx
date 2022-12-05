@@ -16,7 +16,6 @@ export const TemporadaNovaPage = () => {
     const navigate = useNavigate();
 
     const onSave = async (temporada: ITemporada) => {
-        console.log('temporada a salvar', temporada);
         const temporadaSalva = await salvar(temporada);
         navigate(`/temporadas/detalhe/${temporadaSalva.id}`, {
             state: {

@@ -62,12 +62,10 @@ export const TemporadaConsultaPage = () => {
     useEffect(() => {
         const prefetchData = async () => {
             if (pageIndex > 0) { //fetch previous data
-                console.log('prefetch previous page');
                 const fetchDataOptions = { pageIndex: pageIndex - 1, pageSize: pageSize, filter };
                 queryClient.prefetchQuery(['data', fetchDataOptions], () => findAll(fetchDataOptions));
             }
             if (pageIndex < table.getPageCount() - 2) { //fetch next data
-                console.log('prefetch next page');
                 const fetchDataOptions = { pageIndex: pageIndex + 2, pageSize, filter };
                 queryClient.prefetchQuery(['data', fetchDataOptions], () => findAll(fetchDataOptions));
             }

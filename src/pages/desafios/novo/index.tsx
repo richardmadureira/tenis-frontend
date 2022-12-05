@@ -27,7 +27,6 @@ export const DesafioNovoPage = () => {
     const { listaTenistasDesafiantes1, listaTenistasDesafiados1, listaTenistasDesafiantes2, listaTenistasDesafiados2 } = useTenistaDesafio(codigoTipoPartida, idTenistaDesafiante1, idTenistaDesafiado1, idTenistaDesafiante2, idTenistaDesafiado2);
 
     const onSave = useCallback((desafio: IDesafio) => {
-        console.log('desafio a salvar', desafio);
         salvar(desafio).then(desafioSalvo => {
             navigate(`/desafios/detalhe/${desafioSalvo.id}`, {
                 state: {

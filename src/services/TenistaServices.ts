@@ -9,9 +9,9 @@ export const obterTenistaPeloId = async (id: string | undefined): Promise<ITenis
 };
 
 export const salvarTenista = async (tenista: ITenista & {avatarFileName: string}): Promise<ITenista> => {
-    const formData = new FormData();
     const { nome, email, codigoSexo, dataNascimento, avatar, avatarFileName } = tenista;
-    console.log(tenista);
+    
+    const formData = new FormData();
     formData.append("nome", nome as string);
     formData.append("email", email as string);
     formData.append("codigoSexo", String(codigoSexo));
