@@ -14,7 +14,7 @@ export const TemporadaHomePage = () => {
             <div className='flex justify-center items-center'>
                 <div className='btn-group'>
                     <NavLink to='/home' type='button' className='btn btn-primary btn-outline btn-sm flex gap-1'><FaHome />Home</NavLink>
-                    <NavLink to='/temporadas/novo' className='btn btn-sm btn-primary btn-outline flex gap-1'><FaPlusCircle />Novo</NavLink>
+                    <NavLink to='/temporadas/nova' className='btn btn-sm btn-primary btn-outline flex gap-1'><FaPlusCircle />Nova</NavLink>
                     <NavLink to='/temporadas/pesquisa' className='btn btn-sm btn-primary btn-outline flex gap-1'><FaSearch />Consulta</NavLink>
                 </div>
             </div>

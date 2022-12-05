@@ -36,17 +36,28 @@ export const TemporadaNovaPage = () => {
             <h1 className='text-primary text-xl'>Nova Temporada</h1>
             <form className='card card-compact card-bordered shadow' noValidate onSubmit={handleSubmit(onSave)}>
                 <div className='card-body'>
-                    <div className='form-control w-full md:col-span-3'>
-                        <label id='label-descricao' className='label'>
-                            <span className='label-text'>Descrição</span>
-                        </label>
-                        <input id='descricao' placeholder='Ex.: Temporada de desafios de tênis da AABB 2020' {...register('descricao', { required: true })} autoFocus title='Informe aqui uma descrição da temporada' required className='input input-sm input-primary' />
-                        {errors.descricao &&
-                            <span className="label-text-alt alert alert-error py-1 my-1">{errors.descricao.message}</span>
-                        }
+                    <div className='grid grid-cols-5 gap-2'>
+                        <div className='form-control md:col-span-4'>
+                            <label id='label-descricao' className='label'>
+                                <span className='label-text'>Descrição</span>
+                            </label>
+                            <input id='descricao' placeholder='Ex.: Temporada de desafios de tênis da AABB 2020' {...register('descricao', { required: true })} autoFocus title='Informe aqui uma descrição da temporada' required className='input input-sm input-primary' />
+                            {errors.descricao &&
+                                <span className="label-text-alt alert alert-error py-1 my-1">{errors.descricao.message}</span>
+                            }
+                        </div>
+                        <div className='form-control w-full'>
+                            <label id='label-ano' className='label'>
+                                <span className='label-text'>Ano</span>
+                            </label>
+                            <input id='ano' placeholder='Ex.: 2022' {...register('ano', { required: true, valueAsNumber: true })} autoFocus title='Informe aqui o ano da temporada' required className='input input-sm input-primary' />
+                            {errors.ano &&
+                                <span className="label-text-alt alert alert-error py-1 my-1">{errors.ano.message}</span>
+                            }
+                        </div>
                     </div>
                     <div className='grid grid-cols-2 gap-2'>
-                        <div className='form-control w-full'>
+                        <div className='form-control'>
                             <label id='label-horario-inicio' className='label'>
                                 <span className='label-text'>Data de Início</span>
                             </label>
@@ -69,7 +80,7 @@ export const TemporadaNovaPage = () => {
                                 <span className="label-text-alt alert alert-error py-1 my-1">{errors.horarioInicio.message}</span>
                             }
                         </div>
-                        <div className='form-control w-full'>
+                        <div className='form-control'>
                             <label id='label-horario-termino' className='label'>
                                 <span className='label-text'>Data de Término</span>
                             </label>
@@ -92,6 +103,13 @@ export const TemporadaNovaPage = () => {
                                 <span className="label-text-alt alert alert-error py-1 my-1">{errors.horarioTermino.message}</span>
                             }
                         </div>
+                    </div>
+                    <div className="form-control">
+                        <label className="label cursor-pointer justify-start gap-2">
+                            <input type="checkbox" {...register('ativa')} className="checkbox checkbox-primary" />
+                            <span className="label-text">Temporada Ativa</span>
+                        </label>
+                        {errors.ativa && <span className="label-text-alt alert alert-error py-1 my-1">{errors.ativa.message}f</span>}
                     </div>
                     <div className='flex justify-end gap-1'>
                         <button id='btn-reset' type='reset' onClick={onReset} className='btn btn-primary btn-outline btn-sm flex gap-1'><FaEraser />Limpar</button>

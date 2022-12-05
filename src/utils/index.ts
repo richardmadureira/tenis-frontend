@@ -57,6 +57,10 @@ export const tipoPartidaFormat = (tipoPartida: TipoPartida): string => {
     }
 }
 
+export const simOuNaoFormat = (v: boolean | undefined): string => {
+    return v ? 'Sim': 'Não';
+}
+
 export const isIsoDateString = (value: any): boolean => {
     return value && typeof value === "string" && ISO_DATE_FORMAT.test(value);
 }

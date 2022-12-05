@@ -43,6 +43,8 @@ export interface ITemporada {
     descricao?: string;
     horarioInicio?: Date;
     horarioTermino?: Date;
+    ativa?: boolean;
+    ano?: number;
 }
 
 

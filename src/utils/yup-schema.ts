@@ -1,4 +1,4 @@
-import { date, number, object, string } from 'yup';
+import { boolean, date, number, object, string } from 'yup';
 
 export const novoTorneioSchema = object().shape({
   nome: string().required("É necessário informar o nome do torneio."),
@@ -10,7 +10,7 @@ export const novoTorneioSchema = object().shape({
 export const novoTenistaSchema = object().shape({
   nome: string().required("É necessário informar o nome do tenista."),
   email: string().required("É necessário informar o nome do tenista."),
-  codigoSexo: number().transform((value) => value ? parseInt(value) : value).required("É necessário informar o sexo").oneOf([1, 2], 'Sexo informado não é válido'),
+  codigoSexo: number().transform((v) => v ? parseInt(v) : v).required("É necessário informar o sexo").oneOf([1, 2], 'Sexo informado não é válido'),
   dataNascimento:
     date()
       .required("É necessário informar a data de nascimento do tenista.")
@@ -20,6 +20,8 @@ export const novaTemporadaSchema = object().shape({
   descricao: string().required('É necessário informar uma descrição para a temporada.'),
   horarioInicio: date().required('É necessário informar a data de início da temporada').typeError('É necessário informar uma data de início válida'),
   horarioTermino: date().required('É necessário informar a data de término da temporada').typeError('É necessário informar uma data de término válida'),
+  ativa: boolean().required('É necessário informar se a temporada estará ativa ou não'),
+  ano: number().transform(v => v ? parseInt(v) : v).required('É necessário informar o ano')
 });
 
 export const novoDesafioSchema = object().shape({

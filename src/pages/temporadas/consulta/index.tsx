@@ -85,7 +85,7 @@ export const TemporadaConsultaPage = () => {
     const table = useReactTable({
         data: data?.content ?? [],
         columns,
-        pageCount: data?.totalElements ?? -1,
+        pageCount: data?.pageCount ?? -1,
         state: {
             pagination
         },
